@@ -7,7 +7,7 @@ const Profile = (props) => {
   const { username } = props;
   const [isFollowed, setIsFollowed] = useState(false);
   const [inputAccount, setInputAccount] = useState("");
-  const postCount = 5;
+  const postCount = 11;
   const posts = [...Array(postCount)];
 
   return (
@@ -31,9 +31,15 @@ const Profile = (props) => {
       {postCount === 0 ? (
         <div>No Posts</div>
       ) : (
-        posts.map((_, idx) => (
-          <Post src="https://via.placeholder.com/300" key={idx} />
-        ))
+        <div className="posts">
+          {posts.map((_, idx) => (
+            <Post
+              src="https://via.placeholder.com/300"
+              key={idx}
+              className="post"
+            />
+          ))}
+        </div>
       )}
     </React.Fragment>
   );
